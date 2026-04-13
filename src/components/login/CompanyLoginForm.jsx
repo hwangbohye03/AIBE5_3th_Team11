@@ -134,7 +134,7 @@ export default function CompanyLoginForm( {setMemberType}) {
                             href="#"
                             className="font-bold text-amber-700 hover:underline transition-colors"
                         >
-                            기업회원 가입
+                            회원가입
                         </a>
                     </div>
                 </div>
