@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { posts } from "../../mockData/posts"; // 게시글 데이터
-
+import { posts } from "../../mockData/posts"; // 테스트 게시글 데이터
+import { member } from "../../mockData/member" // 테스트  회원 데이터 
+import { post_like } from "../../mockData/post_like"; // 테스트 좋아요 데이터 
+import { post_comment } from "../../mockData/post_comment"; // 테스트 댓글 데이터 
+ 
 
 export default function CommunityList() {
   // 1. 탭 상태 관리 (기존 navigate 제거)
@@ -14,13 +17,19 @@ export default function CommunityList() {
   );
 
   // 3. 정렬 로직 (필터링된 데이터 기준)
+  const getPostLikes = (postId) => { // 좋아요 개수 계산 
+  return post_like.filter(
+      (like) => like.post_id === postId && like.comment_id === null // 게시글 좋아요만 카운트
+    ).length;
+  };
   const [sortType, setSortType] = useState("latest");
   const sortedPosts = [...filteredPosts].sort((a, b) => {
-    return sortType === "latest" 
-      ? new Date(b.date) - new Date(a.date) 
-      : b.likes - a.likes;
+    return sortType === "latest"
+      ? new Date(b.created_at) - new Date(a.created_at)
+      : getPostLikes(b.post_id) - getPostLikes(a.post_id);
   });
 
+  
   // 4. 페이지네이션 관련 (sortedPosts 기준)
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5; // 한 페이지에 보일 게시글 개수
@@ -38,6 +47,15 @@ export default function CommunityList() {
     setActiveTab(tab);
     setCurrentPage(1);
   };
+
+  // 댓글 개수 
+  const getCommentCount = (postId) => { // posts 기준으로 post_id 매칭해서 count
+    return post_comment.filter(
+      (comment) => comment.post_id === postId && comment.is_deleted === false
+    ).length;
+  };
+
+  
 
   return (
     <div className="max-w-7xl mx-auto px-10 py-8 bg-[#FDFBF7]">
@@ -110,9 +128,9 @@ export default function CommunityList() {
             {/* 리스트 각 항목 출력*/}
             {currentPosts.map((post, index) => (
               <tr
-                key={post.id}
+                key={post.post_id}
                 className="hover:bg-gray-50 cursor-pointer"
-                onClick={() => navigate(`/communityDetail/${post.id}`)}
+                onClick={() => navigate(`/communityDetail/${post.post_id}`)}
               >
                 <td className="px-6 py-4 text-center text-yellow-600 font-medium">
                   {(currentPage - 1) * postsPerPage + index + 1}
@@ -132,16 +150,18 @@ export default function CommunityList() {
                 <td className="px-6 py-4 font-semibold text-[#2A1D16]">
                   {post.title}
                   <span className="ml-2 text-[#E66235] text-xs whitespace-nowrap">
-                    [{post.commentsCount}]
+                    [{getCommentCount(post.post_id)}]
                   </span>
                 </td>
 
+                
+
                 <td className="px-6 py-4 text-gray-500 whitespace-nowrap">
-                  {post.author}
+                  {member.find(m => m.member_id === post.member_id)?.name}
                 </td>
 
                 <td className="px-6 py-4 text-gray-400 whitespace-nowrap">
-                  {post.date}
+                  {post.created_at}
                 </td>
 
                 <td className="px-6 py-4 text-gray-400 whitespace-nowrap">
@@ -149,7 +169,7 @@ export default function CommunityList() {
                 </td>
 
                 <td className="px-6 py-4 text-center text-[#E66235] whitespace-nowrap">
-                  {post.likes}
+                  {getPostLikes(post.post_id)}
                 </td>
               </tr>
             ))}
