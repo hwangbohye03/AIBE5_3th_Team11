@@ -8,6 +8,8 @@ import CommunityWrite from "./pages/CommunityWrite";
 import ResumeList from "./pages/ResumeList";
 import ResumeForm from "./pages/ResumeForm";
 import ResumeDetail from "./pages/ResumeDetail";
+import CompanyMypage from "./pages/CompanyMypage";
+import CompanyJobPostManage from "./pages/CompanyJobPostManage";
 import Jobs from "./pages/Jobs";
 import JobDetail from "./pages/JobDetail";
 import MemberMypage from "./pages/MemberMypage";
@@ -28,11 +30,15 @@ export default function App() {
         <Route path="/resumes/new" element={<ResumeForm />} />
         <Route path="/resumes/:id" element={<ResumeDetail />} />
         <Route path="/resumes/:id/edit" element={<ResumeForm />} />
+
+        <Route path="/company-mypage" element={<CompanyMypage />} />
+        <Route path="/company-jobpost-manage" element={<CompanyJobPostManage />} />
+
         <Route path="/jobs" element={<Jobs/>}/>
         <Route path="/jobs/:id" element={<JobDetail/>} />
         <Route path="/memberMypage" element={<MemberMypage/>} />
         <Route path="/companyApplicants" element={<CompanyApplicants/>} />
-        </Routes>
+       </Routes>
     </div>
   );
 }
