@@ -4,7 +4,15 @@ import { useState } from "react";
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-  const memberType = localStorage.getItem("memberType").toUpperCase().replace(/-/g, "");
+  // const memberType = localStorage.getItem("memberType").toUpperCase().replace(/-/g, "");
+  let memberType = localStorage.getItem("memberType");
+
+  if (!memberType) {
+    memberType = "UNAUTHENTICATED";
+    localStorage.setItem("memberType", memberType);
+  }
+
+  memberType = memberType.toUpperCase().replace(/-/g, "");
 
   const [isLogin, setIsLogin] = useState(() => {
     return localStorage.getItem("isLogin") === "true";
