@@ -35,7 +35,7 @@ export default function Header() {
   };
 
   return (
-      <header className="w-full bg-white border-b border-[#F3E8D0]">
+      <header className="sticky top-0 z-20 w-full bg-white border-b border-[#F3E8D0]">
         <div className="max-w-7xl mx-auto px-10 h-16 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function Header() {
             {isLogin ? (
                 <>
                   <Link
-                      to="/notifications"
+                      to="/companyapplicants"
                       className="relative w-9 h-9 flex items-center justify-center rounded-md hover:bg-gray-100 transition"
                   >
                     <i className="ri-notification-3-line text-xl text-gray-600"></i>
@@ -77,7 +77,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                      to={memberType === "COMPANY" ? "/company-mypage" : "/resumes"}
+                      to={memberType === "COMPANY" ? "/company-mypage" : "/memberMypage"}
                       className="w-9 h-9 flex items-center justify-center rounded-md hover:bg-gray-100 transition"
                   >
                     <i className="ri-user-3-line text-xl text-gray-600"></i>
