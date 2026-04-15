@@ -77,7 +77,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                      to={memberType === "COMPANY" ? "/company-mypage" : "/resumes"}
+                      to={memberType === "COMPANY" ? "/company-mypage" : "/memberMypage"}
                       className="w-9 h-9 flex items-center justify-center rounded-md hover:bg-gray-100 transition"
                   >
                     <i className="ri-user-3-line text-xl text-gray-600"></i>
