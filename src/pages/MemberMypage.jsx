@@ -1,1 +1,201 @@
-aW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tICJyZWFjdCI7CmltcG9ydCB7IHVzZU5hdmlnYXRlIH0gZnJvbSAicmVhY3Qtcm91dGVyLWRvbSI7CmltcG9ydCBNZW1iZXJNeXBhZ2VCb2R5IGZyb20gIi4uL2NvbXBvbmVudHMvbWVtYmVybXlwYWdlL01lbWJlck15cGFnZUJvZHkiOwoKLy8g7J207Yz87Jy866CI7J207IqkIOyYgSAtIFJlc3VtZUxpc3Qg7ZiF7J28OuyLpeyLnCDrqqjqsIAKZnVuY3Rpb24gUmVzdW1lU2VjdGlvbigpIHsKICBjb25zdCBuYXZpZ2F0ZSA9IHVzZU5hdmlnYXRlKCk7CgogIGNvbnN0IHJlc3VtZXMgPSBbCiAgICB7CiAgICAgIGlkOiAxLAogICAgICB0aXRsZTogIuydtO66rO2EsOuFhCDqta3rtoDsnbTsnbwg7J207Yz87Jy8IiwKICAgICAgdXBkYXRlZEF0OiAiMjAyNS0wMy0xMCIsCiAgICAgIGlzRGVmYXVsdDogZmFsc2UsCiAgICAgIHNraWxsczogWyJSZWFjdCIsICJUeXBlU2NyaXB0IiwgIk5leHQuanMiLCAiVGFpbHdpbmQgQ1NTIiwgIkdpdCJdLAogICAgfSwKICAgIHsKICAgICAgaWQ6IDIsCiAgICAgIHRpdGxlOiAi6rO97rCX6rKB7JqU7Yq4ICjqtZDshJ0pIiwKICAgICAgdXBkYXRlZEF0OiAiMjAyNS0wMi0yMCIsCiAgICAgIGlzRGVmYXVsdDogdHJ1ZSwKICAgICAgc2tpbGxzOiBbIlJlYWN0IiwgIkphdmFTY3JpcHQiLCAiSFRNTC9DU1MiXSwKICAgIH0sCiAgXTsKCiAgcmV0dXJuICgKICAgIDxkaXYgY2xhc3NOYW1lPSJzcGFjZS15LTQiPgogICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTIiPgogICAgICAgIDxoMyBjbGFzc05hbWU9InRleHQtbGcgZm9udC1ib2xkIHRleHQtWyMzQzJBMjFdIj7snbTsaKjsaIYg6rSA66y8PC9oMz4KICAgICAgICA8YnV0dG9uCiAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBuYXZpZ2F0ZSgiL3Jlc3VtZXMvbmV3Iil9CiAgICAgICAgICBjbGFzc05hbWU9InRleHQtc20gYmctZGVsbG93LTUwMCBob3ZlcjpvcGFjaXR5LTkwIHRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCBweC00IHB5LTIgcm91bmRlZC1sZyB0cmFuc2l0aW9uLW9wYWNpdHkgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEuNSIKICAgICAgICA+CiAgICAgICAgICA8aSBjbGFzc05hbWU9InJpLWFkZC1saW5lIj48L2k+IOCFvCDsaKjsnbQKICAgICAgICA8L2J1dHRvbj4KICAgICAgPC9kaXY+CgogICAgICB7cmVzdW1lcy5tYXAoKHJlc3VtZSkgPT4gKAogICAgICAgIDxkaXYKICAgICAgICAgIGtleT17cmVzdW1lLmlkfQogICAgICAgICAgY2xhc3NOYW1lPSJiZy13aGl0ZSBib3JkZXIgYm9yZGVyLVsjRThEQ0NCXSB0b3VuZGVkLXhsIHAtNSBob3Zlcjpzaworb3ctbWQgdHJhbnNpdGlvbi1zaGFkb3ciCiAgICAgICAgPgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIG1iLTEiPgogICAgICAgICAgICA8aDQgY2xhc3NOYW1lPSJmb250LWJvbGQgdGV4dC1bIzVENDAzN10gdGV4dC1iYXNlIj57cmVzdW1lLnRpdGxlfTwvaDQ+CiAgICAgICAgICAgIHtyZXN1bWUuaXNEZWZhdWx0ICYmICgKICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9InRleHQteHMgYmcteWVsbG93LTEwMCB0ZXh0LXllbGxvdy03MDAgYm9yZGVyIGJvcmRlci15ZWxsb3ctMjAwIHB4LTIgcHktMC41IHJvdW5kZWQtZnVsbCBmb250LW1lZGl1bSI+CiAgICAgICAgICAgICAgICDquIAg7J207Yz87Jy8CiAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICApfQogICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8cCBjbGFzc05hbWU9InRleHQteHMgdGV4dC1ncmF5LTQwMCBtYi0zIj7suZjsoJwg7IiY7KCR7J2EOiB7cmVzdW1lLnVwZGF0ZWRBdH08L3A+CiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBmbGV4LXdyYXAgZ2FwLTEuNSBtYi00Ij4KICAgICAgICAgICAge3Jlc3VtZS5za2lsbHMubWFwKChzKSA9PiAoCiAgICAgICAgICAgICAgPHNwYW4KICAgICAgICAgICAgICAgIGtleT17c30KICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0idGV4dC14cyBiZy1bI0ZGRjhGMF0gdGV4dC1bIzhENkU2M10gYm9yZGVyIGJvcmRlci1bI0YzRThEMF0gcHgtMiBweS0wLjUgcm91bmRlZC1mdWxsIgogICAgICAgICAgICAgID4KICAgICAgICAgICAgICAgIHtzfQogICAgICAgICAgICAgIDwvc3Bhbj4KICAgICAgICAgICAgKSl9CiAgICAgICAgICA8L2Rpdj4KICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IGdhcC0yIj4KICAgICAgICAgICAgPGJ1dHRvbgogICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IG5hdmlnYXRlKGAvcmVzdW1lcy8ke3Jlc3VtZS5pZH1gKX0KICAgICAgICAgICAgICBjbGFzc05hbWU9ImZsZXgtMSB0ZXh0LXNtIHRleHQtWyM4RDZFNjNdIGJvcmRlciBib3JkZXItWyNEN0I4OUNdIHJvdW5kZWQtbGcgcHktMiBob3Zlcjpiey1bI0ZGRjNFMF0gdHJhbnNpdGlvbi1jb2xvcnMgZm9udC1tZWRpdW0iCiAgICAgICAgICAgID4KICAgICAgICAgICAgICDrr7jrjZwKICAgICAgICAgICAgPC9idXR0b24+CiAgICAgICAgICAgIDxidXR0b24KICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBuYXZpZ2F0ZShgL3Jlc3VtZXMvJHtyZXN1bWUuaWR9L2VkaXRgKX0KICAgICAgICAgICAgICBjbGFzc05hbWU9ImZsZXgtMSB0ZXh0LXNtIHRleHQtZ3JheS03MDAgYm9yZGVyIGJvcmRlci1ncmF5LTIwMCByb3VuZGVkLWxnIHB5LTIgaG92ZXI6Ymetco1ncmF5LTUwIHRyYW5zaXRpb24tY29sb3JzIGZvbnQtbWVkaXVtIgogICAgICAgICAgICA+CiAgICAgICAgICAgICAg7IiY7LqYCiAgICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CiAgICAgICkpfQoKICAgICAgPGJ1dHRvbgogICAgICAgIG9uQ2xpY2s9eygpID0+IG5hdmlnYXRlKCIvcmVzdW1lcyIpfQogICAgICAgIGNsYXNzTmFtZT0idy1mdWxsIHRleHQtc20gdGV4dC1bIzhENkU2M10gYm9yZGVyIGJvcmRlci1bI0Q3Qjg5Q10gcm91bmRlZC14bCBweS0zIGhvdmVyOmJnLVsjRkZGM0UwXSB0cmFuc2l0aW9uLWNvbG9ycyBmb250LW1lZGl1bSIKICAgICAgPgogICAgICAgIOyWtOy3qCDsnbTsaKjsnbQg66yn66Gd67aA7KC4IOKGkgogICAgICA8L2J1dHRvbj4KICAgIDwvZGl2PgogICk7Cn0KCi8vIOyehOuWmOuNuiDrqZTroKUg7IiYg+yXkApmdW5jdGlvbiBTY3JhcFNlY3Rpb24oKSB7CiAgY29uc3QgbmF2aWdhdGUgPSB1c2VOYXZpZ2F0ZSgpOwoKICBjb25zdCBzY3JhcHMgPSBbCiAgICB7CiAgICAgIGlkOiAxLAogICAgICBjb21wYW55OiAi7KCc7Iuc7ZWcIOuEpOuFhOq0gOybkCIsCiAgICAgIHRpdGxlOiAi67CpOuyduO2UhCDqta3rtoDsnbTsnbwg7KCc7JihIChqYW5nCOyEse2YhCDsspnrqr3mi5DsnbQpIiwKICAgICAgZGVhZGxpbmU6ICIyMDI1LTA0LTMwIiwKICAgICAgc2NyYXBwZWRBdDogIjIwMjUtMDMtMTUiLAogICAgfSwKICAgIHsKICAgICAgaWQ6IDIsCiAgICAgIGNvbXBhbnk6ICLssKnrqbUg7ZiEr6X7ZWcIiwKICAgICAgdGl0bGU6ICJVSS9VWCDrjIDsnbTsnbwg66y4ICRKZ2Nq7JiqIiwKICAgICAgZGVhZGxpbmU6ICIyMDI1LTA1LTEwIiwKICAgICAgc2NyYXBwZWRBdDogIjIwMjUtMDMtMjAiLAogICAgfSwKICBdOwoKICByZXR1cm4gKAogICAgPGRpdiBjbGFzc05hbWU9InNwYWNlLXktNCI+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMiI+CiAgICAgICAgPGgzIGNsYXNzTmFtZT0idGV4dC1sZyBmb250LWJvbGQgdGV4dC1bIzNDMkEyMV0iPuyehOuWmOuNuiDrqZTroKU8L2gzPgogICAgICAgIDxzcGFuIGNsYXNzTmFtZT0idGV4dC1zbSB0ZXh0LWdyYXktNDAwIj57c2NyYXBzLmxlbmd0aH3quIA8L3NwYW4+CiAgICAgIDwvZGl2PgoKICAgICAge3NjcmFwcy5sZW5ndGggPT09IDAgPyAoCiAgICAgICAgPGRpdiBjbGFzc05hbWU9InRleHQtY2VudGVyIHB5LTE2IHRleHQtZ3JheS00MDAiPgogICAgICAgICAgPGkgY2xhc3NOYW1lPSJyaS1ib29rbWFyay1saW5lIHRleHQtNXhsIGJsb2NrIG1iLTMgdGV4dC1ncmF5LTMwMCI+PC9pPgogICAgICAgICAgPHAgY2xhc3NOYW1lPSJmb250LW1lZGl1bSI+7IiY7KeA7ZWcIOyehOuWmADsnbQA7JiA7J2EIOyImOygoO2LsOuhnuuEiOuhnuuNsC48L3A+CiAgICAgICAgICA8cCBjbGFzc05hbWU9InRleHQtc20gbXQtMSI+7J6E7ZaI6rBw64uI6rCA7JeA67KJIOyeiOuGkyE8L3A+CiAgICAgICAgICA8YnV0dG9uCiAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IG5hdmlnYXRlKCIvam9icyIpfQogICAgICAgICAgICBjbGFzc05hbWU9Im10LTQgdGV4dC1zbSBiZy15ZWxsb3ctNTAwIHRleHQtd2hpdGUgcHgtNCBweS0yIHJvdW5kZWQtbGcgaG92ZXI6b3BhY2l0eS05MCIKICAJICAKICAJICAKICAJICAKICAJICAKICAJICAKICAJID4K7J6E7ZaI6rBw64uI6rCAIOq0gOyjsO2ajDwvYnV0dG9uPgogICAgICAgIDwvZGl2PgogICAgICApIDogKAogICAgICAgIHNjcmFwcy5tYXAoKHNjcmFwKSA9PiAoCiAgICAgICAgICA8ZGl2CiAgICAgICAgICAgIGtleT17c2NyYXAuaWR9CiAgICAgICAgICAgIGNsYXNzTmFtZT0iYmctd2hpdGUgYm9yZGVyIGJvcmRlci1bI0U4RENDQl0gcm91bmRlZC14bCBwLTUgaG92ZXI6c2hhZG93LW1kIHRyYW5zaXRpb24tc2hhZG93IgogICAgICAgICAgPgogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBpdGVtcy1zdGFydCBqdXN0aWZ5LWJldHdlZW4iPgogICAgICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9InRleHQteHMgdGV4dC1bIzhENkU2M10gZm9udC1tZWRpdW0gbWItMSI+e3NjcmFwLmNvbXBhbnl9PC9wPgogICAgICAgICAgICAgICAgPGg0IGNsYXNzTmFtZT0iZm9udC1ib2xkIHRleHQtWyM1RDQwMzddIHRleHQtc20gbGVhZGluZy1zbmciPntzY3JhcC50aXRsZX08L2g0PgogICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggZ2FwLTMgbXQtMiB0ZXh0LXhzIHRleHQtZ3JheS00MDAiPgogICAgICAgICAgICAgICAgICA8c3Bhbj7rqLjqsbg6IHtzY3JhcC5kZWFkbGluZX08L3NwYW4+CiAgICAgICAgICAgICAgICAgIDxzcGFuPuyehOuWmDoge3NjcmFwLnNjcmFwcGVkQXR9PC9zcGFuPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9InRleHQteWVsbG93LTUwMCBob3Zlcjp0ZXh0LXllbGxvdy02MDAgdGV4dC14bCBtbC0zIj4KICAgICAgICAgICAgICAgIDxpIGNsYXNzTmFtZT0icmktYm9va21hcmstZmlsbCI+PC9pPgogICAgICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPGJ1dHRvbgogICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IG5hdmlnYXRlKGAvam9icy8ke3NjcmFwLmlkfWApfQogICAgICAgICAgICAgIGNsYXNzTmFtZT0ibXQtMyB3LWZ1bGwgdGV4dC1zbSB0ZXh0LVsjOEQ2RTYzXSBib3JkZXIgYm9yZGVyLVsjRDdCODlDXSByb3VuZGVkLWxnIHB5LTIgaG92ZXI6Ymetco1bI0ZGRjNFMF0gdHJhbnNpdGlvbi1jb2xvcnMgZm9udC1tZWRpdW0iCiAgICAgICAgICAgID4KICAgICAgICAgICAgICDqs6DrqZQg7ZiI7J6QCiAgICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICAgPC9kaXY+CiAgICAgICAgKSkKICAgICAgKX0KICAgIDwvZGl2PgogICk7Cn0KCmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIE1lbWJlck15cGFnZSgpIHsKICBjb25zdCBbYWN0aXZlTWVudSwgc2V0QWN0aXZlTWVudV0gPSB1c2VTdGF0ZSgicHJvZmlsZSIpOwoKICBjb25zdCByZW5kZXJCb2R5ID0gKCkgPT4gewogICAgc3dpdGNoIChhY3RpdmVNZW51KSB7CiAgICAgIGNhc2UgInJlc3VtZSI6CiAgICAgICAgcmV0dXJuIDxSZXN1bWVTZWN0aW9uIC8+OwogICAgICBjYXNlICJzY3JhcCI6CiAgICAgICAgcmV0dXJuIDxTY3JhcFNlY3Rpb24gLz47CiAgICAgIGNhc2UgInByb2ZpbGUiOgogICAgICBkZWZhdWx0OgogICAgICAgIHJldHVybiA8TWVtYmVyTXlwYWdlQm9keSAvPjsKICAgIH0KICB9OwoKICByZXR1cm4gKAogICAgPD4KICAgICAge3JlbmRlckJvZHkoKX0KICAgIDwvPgogICk7Cn0K
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import MemberSidebar from "../components/membermypage/MemberSidebar";
+import MemberMypageBody from "../components/membermypage/MemberMypageBody";
+
+// 이력서 관리 섹션 - ResumeList 페이지로 이동하는 런처패드
+function ResumeSection() {
+    const navigate = useNavigate();
+
+    const resumes = [
+        {
+            id: 1,
+            title: "프론트엔드 개발자 이력서",
+            updatedAt: "2025-03-10",
+            isDefault: false,
+            skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Git"],
+        },
+        {
+            id: 2,
+            title: "경력기술서 (간소화)",
+            updatedAt: "2025-02-20",
+            isDefault: true,
+            skills: ["React", "JavaScript", "HTML/CSS"],
+        },
+    ];
+
+    return (
+        <div className="space-y-4">
+            <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-bold text-[#3C2A21]">이력서 관리</h3>
+                <button
+                    onClick={() => navigate("/resumes/new")}
+                    className="text-sm bg-yellow-500 hover:opacity-90 text-white font-semibold px-4 py-2 rounded-lg transition-opacity flex items-center gap-1.5"
+                >
+                    <i className="ri-add-line"></i> 새 이력서
+                </button>
+            </div>
+
+            {resumes.map((resume) => (
+                <div
+                    key={resume.id}
+                    className="bg-white border border-[#E8DCCB] rounded-xl p-5 hover:shadow-md transition-shadow"
+                >
+                    <div className="flex items-center gap-2 mb-1">
+                        <h4 className="font-bold text-[#5D4037] text-base">{resume.title}</h4>
+                        {resume.isDefault && (
+                            <span className="text-xs bg-yellow-100 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full font-medium">
+                기본 이력서
+              </span>
+                        )}
+                    </div>
+                    <p className="text-xs text-gray-400 mb-3">최종 수정일: {resume.updatedAt}</p>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                        {resume.skills.map((s) => (
+                            <span
+                                key={s}
+                                className="text-xs bg-[#FFF8F0] text-[#8D6E63] border border-[#F3E8D0] px-2 py-0.5 rounded-full"
+                            >
+                {s}
+              </span>
+                        ))}
+                    </div>
+                    <div className="flex gap-2">
+                        <button
+                            onClick={() => navigate(`/resumes/${resume.id}`)}
+                            className="flex-1 text-sm text-[#8D6E63] border border-[#D7B89C] rounded-lg py-2 hover:bg-[#FFF3E0] transition-colors font-medium"
+                        >
+                            미리보기
+                        </button>
+                        <button
+                            onClick={() => navigate(`/resumes/${resume.id}/edit`)}
+                            className="flex-1 text-sm text-gray-700 border border-gray-200 rounded-lg py-2 hover:bg-gray-50 transition-colors font-medium"
+                        >
+                            수정
+                        </button>
+                    </div>
+                </div>
+            ))}
+
+            <button
+                onClick={() => navigate("/resumes")}
+                className="w-full text-sm text-[#8D6E63] border border-[#D7B89C] rounded-xl py-3 hover:bg-[#FFF3E0] transition-colors font-medium"
+            >
+                전체 이력서 목록 보기 →
+            </button>
+        </div>
+    );
+}
+
+// 스크랙 목록 섹션
+function ScrapSection() {
+    const navigate = useNavigate();
+
+    const scraps = [
+        {
+            id: 1,
+            company: "주식회사 모범기업",
+            title: "백엔드 개발자 모집 (장애인 우대 채용)",
+            deadline: "2025-04-30",
+            scrappedAt: "2025-03-15",
+        },
+        {
+            id: 2,
+            company: "주식회사 한사랑",
+            title: "UI/UX 디자이너 모집",
+            deadline: "2025-05-10",
+            scrappedAt: "2025-03-20",
+        },
+    ];
+
+    return (
+        <div className="space-y-4">
+            <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-bold text-[#3C2A21]">스크랙 목록</h3>
+                <span className="text-sm text-gray-400">{scraps.length}개</span>
+            </div>
+
+            {scraps.length === 0 ? (
+                <div className="text-center py-16 text-gray-400">
+                    <i className="ri-bookmark-line text-5xl block mb-3 text-gray-300"></i>
+                    <p className="font-medium">스크랙한 채용공고가 없습니다.</p>
+                    <p className="text-sm mt-1">채용공고를 찾아보세요!</p>
+                    <button
+                        onClick={() => navigate("/jobs")}
+                        className="mt-4 text-sm bg-yellow-500 text-white px-4 py-2 rounded-lg hover:opacity-90"
+                    >
+                        채용공고 바로가기
+                    </button>
+                </div>
+            ) : (
+                scraps.map((scrap) => (
+                    <div
+                        key={scrap.id}
+                        className="bg-white border border-[#E8DCCB] rounded-xl p-5 hover:shadow-md transition-shadow"
+                    >
+                        <div className="flex items-start justify-between">
+                            <div>
+                                <p className="text-xs text-[#8D6E63] font-medium mb-1">{scrap.company}</p>
+                                <h4 className="font-bold text-[#5D4037] text-sm leading-snug">{scrap.title}</h4>
+                                <div className="flex gap-3 mt-2 text-xs text-gray-400">
+                                    <span>마감: {scrap.deadline}</span>
+                                    <span>스크랙: {scrap.scrappedAt}</span>
+                                </div>
+                            </div>
+                            <button className="text-yellow-500 hover:text-yellow-600 text-xl ml-3">
+                                <i className="ri-bookmark-fill"></i>
+                            </button>
+                        </div>
+                        <button
+                            onClick={() => navigate(`/jobs/${scrap.id}`)}
+                            className="mt-3 w-full text-sm text-[#8D6E63] border border-[#D7B89C] rounded-lg py-2 hover:bg-[#FFF3E0] transition-colors font-medium"
+                        >
+                            공고 확인
+                        </button>
+                    </div>
+                ))
+            )}
+        </div>
+    );
+}
+
+export default function MemberMypage() {
+    const [activeMenu, setActiveMenu] = useState("profile");
+
+    const renderBody = () => {
+        switch (activeMenu) {
+            case "resume":
+                return <ResumeSection />;
+            case "scrap":
+                return <ScrapSection />;
+            case "profile":
+            default:
+                return <MemberMypageBody />;
+        }
+    };
+
+    return (
+        <div className="min-h-screen flex flex-col bg-[#FDFBF7]">
+            <Header />
+
+            <main className="flex-grow">
+                <div className="max-w-6xl mx-auto px-6 py-10">
+                    <div className="flex flex-col md:flex-row gap-8">
+                        <MemberSidebar
+                            activeMenu={activeMenu}
+                            onChangeMenu={setActiveMenu}
+                        />
+
+                        <section className="flex-1">
+                            {renderBody()}
+                        </section>
+                    </div>
+                </div>
+            </main>
+
+            <Footer />
+        </div>
+    );
+}
