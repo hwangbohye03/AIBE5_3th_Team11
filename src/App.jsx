@@ -8,6 +8,8 @@ import CommunityWrite from "./pages/CommunityWrite";
 import ResumeList from "./pages/ResumeList";
 import ResumeForm from "./pages/ResumeForm";
 import ResumeDetail from "./pages/ResumeDetail";
+import Jobs from "./pages/Jobs";
+import JobDetail from "./pages/JobDetail";
 
 export default function App() {
   return (
@@ -24,7 +26,9 @@ export default function App() {
         <Route path="/resumes/new" element={<ResumeForm />} />
         <Route path="/resumes/:id" element={<ResumeDetail />} />
         <Route path="/resumes/:id/edit" element={<ResumeForm />} />
-      </Routes>
+        <Route path="/jobs" element={<Jobs/>}/>
+        <Route path="/jobs/:id" element={<JobDetail/>} />
+        </Routes>
     </div>
   );
 }
