@@ -7,7 +7,7 @@ export default function MemberSidebar({ activeMenu, onChangeMenu }) {
         }`;
 
     return (
-        <aside className="w-full md:w-64 shrink-0">
+        <aside className="w-full md:w-64 shrink-0 sticky top-20 self-start">
             <div className="mb-4">
                 <h2 className="text-2xl font-bold text-[#3C2A21]">마이페이지</h2>
             </div>
@@ -31,7 +31,7 @@ export default function MemberSidebar({ activeMenu, onChangeMenu }) {
                     className={menuClass("scrap")}
                     onClick={() => onChangeMenu("scrap")}
                 >
-                    스크랩 목록
+                    스크랙 목록
                 </button>
             </div>
         </aside>
