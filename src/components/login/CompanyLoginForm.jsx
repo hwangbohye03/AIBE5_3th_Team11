@@ -130,12 +130,13 @@ export default function CompanyLoginForm( {setMemberType}) {
                             비밀번호 찾기
                         </a>
                         <span className="w-px h-3 bg-amber-300"></span>
-                        <a
-                            href="#"
+                        <button
+                            type="button"
+                            onClick={() => navigate("/membership")}
                             className="font-bold text-amber-700 hover:underline transition-colors"
                         >
                             회원가입
-                        </a>
+                        </button>
                     </div>
                 </div>
 

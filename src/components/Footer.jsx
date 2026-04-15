@@ -12,15 +12,15 @@ export default function Footer() {
           </p>
 
           <p className="text-xs text-gray-400">
-            © 2024 다온일. All rights reserved.
+            © 2026 다온일. All rights reserved.
           </p>
         </div>
 
         {/* 오른쪽 (정보) */}
         <div className="flex flex-col gap-2 text-sm text-gray-500">
-          <p>스프린트 팀</p>
-          <p>사업자등록번호: 000-00-00000</p>
-          <p>고객센터: 1588-0000 (평일 09:00~18:00)</p>
+          <p>team Sprint</p>
+          <p>사업자등록번호: 561-5-81-58140</p>
+          <p>고객센터: 1588-8851 (평일 09:00~18:00)</p>
         </div>
 
       </div>
