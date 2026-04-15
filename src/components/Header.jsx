@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+  const memberType = localStorage.getItem("memberType").toUpperCase().replace(/-/g, "");
 
   const [isLogin, setIsLogin] = useState(() => {
     return localStorage.getItem("isLogin") === "true";
@@ -68,7 +69,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                      to="/mypage"
+                      to={memberType === "COMPANY" ? "/company-mypage" : "/resumes"}
                       className="w-9 h-9 flex items-center justify-center rounded-md hover:bg-gray-100 transition"
                   >
                     <i className="ri-user-3-line text-xl text-gray-600"></i>
@@ -92,7 +93,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                      to="/signup"
+                      to="/Membership"
                       className="px-4 py-2 text-sm font-semibold text-white rounded-md bg-yellow-500 hover:opacity-90 transition"
                   >
                     회원가입

@@ -24,6 +24,7 @@ export default function LoginForm({ setMemberType}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem("isLogin", "true");
+        localStorage.setItem("memberType", "JOB_SEEKER");
         navigate("/");
     };
 
