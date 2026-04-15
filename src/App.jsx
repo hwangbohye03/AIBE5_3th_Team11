@@ -10,10 +10,11 @@ import ResumeForm from "./pages/ResumeForm";
 import ResumeDetail from "./pages/ResumeDetail";
 import Jobs from "./pages/Jobs";
 import JobDetail from "./pages/JobDetail";
+import AiRecommend from "./pages/AiRecommend";
 
 export default function App() {
   return (
-    <div className="bg-[#FDFBF7] min-h-screen">
+    <div className="bg-white min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/community" element={<Community />} />
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/resumes/:id/edit" element={<ResumeForm />} />
         <Route path="/jobs" element={<Jobs/>}/>
         <Route path="/jobs/:id" element={<JobDetail/>} />
+        <Route path="/ai-recommend" element={<AiRecommend/>} />
         </Routes>
     </div>
   );
