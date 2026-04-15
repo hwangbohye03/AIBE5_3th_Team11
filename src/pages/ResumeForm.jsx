@@ -133,7 +133,6 @@ export default function ResumeForm() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
-      <Header />
 
       {/* 서브 헤더 */}
       <div className="bg-white border-b border-[#F3E8D0] sticky top-16 z-10">
@@ -464,7 +463,6 @@ export default function ResumeForm() {
         )}
       </div>
 
-      <Footer />
     </div>
   );
 }
