@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MemberSidebar from "../components/membermypage/MemberSidebar";
@@ -31,7 +31,7 @@ function ResumeSection() {
             <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-bold text-[#3C2A21]">이력서 관리</h3>
                 <button
-                    onClick={() => navigate("/resumes/new")}
+                    onClick={() => navigate("/memberMypage/resumes/new")}
                     className="text-sm bg-yellow-500 hover:opacity-90 text-white font-semibold px-4 py-2 rounded-lg transition-opacity flex items-center gap-1.5"
                 >
                     <i className="ri-add-line"></i> 새 이력서
@@ -64,13 +64,13 @@ function ResumeSection() {
                     </div>
                     <div className="flex gap-2">
                         <button
-                            onClick={() => navigate(`/resumes/${resume.id}`)}
+                            onClick={() => navigate(`/memberMypage/resumes/${resume.id}`)}
                             className="flex-1 text-sm text-[#8D6E63] border border-[#D7B89C] rounded-lg py-2 hover:bg-[#FFF3E0] transition-colors font-medium"
                         >
                             미리보기
                         </button>
                         <button
-                            onClick={() => navigate(`/resumes/${resume.id}/edit`)}
+                            onClick={() => navigate(`/memberMypage/resumes/${resume.id}/edit`)}
                             className="flex-1 text-sm text-gray-700 border border-gray-200 rounded-lg py-2 hover:bg-gray-50 transition-colors font-medium"
                         >
                             수정
@@ -80,7 +80,7 @@ function ResumeSection() {
             ))}
 
             <button
-                onClick={() => navigate("/resumes")}
+                onClick={() => navigate("/memberMypage/resumes")}
                 className="w-full text-sm text-[#8D6E63] border border-[#D7B89C] rounded-xl py-3 hover:bg-[#FFF3E0] transition-colors font-medium"
             >
                 전체 이력서 목록 보기 →
@@ -161,8 +161,32 @@ function ScrapSection() {
     );
 }
 
+// 현재 경로에 따라 활성 메뉴를 판별하는 헬퍼
+function useActiveMenu() {
+    const location = useLocation();
+    const path = location.pathname;
+    if (path.includes("/memberMypage/resumes")) return "resume";
+    if (path.includes("/memberMypage/scrap")) return "scrap";
+    return "profile";
+}
+
 export default function MemberMypage() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // 중첩 라우트가 활성화된 경우(이력서 상세/수정/작성 등)에는 Outlet으로 렌더링
+    const isNestedRoute =
+        location.pathname !== "/memberMypage" &&
+        location.pathname !== "/memberMypage/";
+
+    // 중첩 라우트가 아닐 때만 탭 상태 관리
     const [activeMenu, setActiveMenu] = useState("profile");
+
+    const handleChangeMenu = (menu) => {
+        setActiveMenu(menu);
+        // resume 메뉴 클릭 시 중첩 라우트 대신 인라인 섹션으로 처리
+        navigate("/memberMypage");
+    };
 
     const renderBody = () => {
         switch (activeMenu) {
@@ -184,12 +208,12 @@ export default function MemberMypage() {
                 <div className="max-w-6xl mx-auto px-6 py-10">
                     <div className="flex flex-col md:flex-row gap-8">
                         <MemberSidebar
-                            activeMenu={activeMenu}
-                            onChangeMenu={setActiveMenu}
+                            activeMenu={isNestedRoute ? useActiveMenuFromPath(location.pathname) : activeMenu}
+                            onChangeMenu={handleChangeMenu}
                         />
 
                         <section className="flex-1">
-                            {renderBody()}
+                            {isNestedRoute ? <Outlet /> : renderBody()}
                         </section>
                     </div>
                 </div>
@@ -198,4 +222,11 @@ export default function MemberMypage() {
             <Footer />
         </div>
     );
+}
+
+// 경로 기반 활성 메뉴 판별 (hooks 규칙 우회용 일반 함수)
+function useActiveMenuFromPath(pathname) {
+    if (pathname.includes("/memberMypage/resumes")) return "resume";
+    if (pathname.includes("/memberMypage/scrap")) return "scrap";
+    return "profile";
 }
