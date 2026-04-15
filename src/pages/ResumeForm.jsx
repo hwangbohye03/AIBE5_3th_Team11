@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const emptyResume = {
   title: "",
@@ -28,19 +30,17 @@ export default function ResumeForm() {
   const [saved, setSaved] = useState(false);
 
   const tabs = [
-    { id: "basic", label: "기본정보" },
-    { id: "experience", label: "경력" },
-    { id: "education", label: "학력" },
-    { id: "skills", label: "스킬/자격증" },
+    { id: "basic", label: "기본정보", icon: "ri-user-line" },
+    { id: "experience", label: "경력", icon: "ri-briefcase-line" },
+    { id: "education", label: "학력", icon: "ri-graduation-cap-line" },
+    { id: "skills", label: "스킬/자격증", icon: "ri-award-line" },
   ];
 
-  /* ── 프로필 핸들러 ── */
   const handleProfile = (e) => {
     const { name, value } = e.target;
     setResume((prev) => ({ ...prev, profile: { ...prev.profile, [name]: value } }));
   };
 
-  /* ── 경력 ── */
   const addExperience = () =>
     setResume((prev) => ({
       ...prev,
@@ -63,7 +63,6 @@ export default function ResumeForm() {
       experiences: prev.experiences.filter((_, i) => i !== idx),
     }));
 
-  /* ── 학력 ── */
   const addEducation = () =>
     setResume((prev) => ({
       ...prev,
@@ -86,7 +85,6 @@ export default function ResumeForm() {
       educations: prev.educations.filter((_, i) => i !== idx),
     }));
 
-  /* ── 스킬 ── */
   const addSkill = () => {
     const s = skillInput.trim();
     if (!s || resume.skills.includes(s)) return;
@@ -97,7 +95,6 @@ export default function ResumeForm() {
   const removeSkill = (skill) =>
     setResume((prev) => ({ ...prev, skills: prev.skills.filter((s) => s !== skill) }));
 
-  /* ── 자격증 ── */
   const addCertificate = () =>
     setResume((prev) => ({
       ...prev,
@@ -117,7 +114,6 @@ export default function ResumeForm() {
       certificates: prev.certificates.filter((_, i) => i !== idx),
     }));
 
-  /* ── 저장 ── */
   const handleSave = () => {
     if (!resume.title.trim()) {
       alert("이력서 제목을 입력해주세요.");
@@ -133,39 +129,47 @@ export default function ResumeForm() {
     }, 800);
   };
 
+  const inputClass = "w-full border border-[#D7B89C] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white";
+
   return (
-    <div className="min-h-screen bg-[#FDFBF7]">
-      {/* 상단 헤더 */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+    <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
+      <Header />
+
+      {/* 서브 헤더 */}
+      <div className="bg-white border-b border-[#F3E8D0] sticky top-16 z-10">
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link to="/resumes" className="text-gray-500 hover:text-gray-800 text-sm">← 목록</Link>
-            <h1 className="text-xl font-bold text-gray-900">
+            <Link to="/resumes" className="text-[#8D6E63] hover:text-[#5D4037] text-sm flex items-center gap-1">
+              <i className="ri-arrow-left-line"></i> 목록
+            </Link>
+            <h1 className="text-xl font-extrabold text-[#5D4037]">
               {isEdit ? "이력서 수정" : "새 이력서 작성"}
             </h1>
           </div>
           <button
             onClick={handleSave}
             disabled={saved}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+            className="bg-yellow-500 hover:opacity-90 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-opacity flex items-center gap-1.5"
           >
-            {saved ? "저장됨 ✓" : "저장하기"}
+            <i className={saved ? "ri-check-line" : "ri-save-line"}></i>
+            {saved ? "저장됨" : "저장하기"}
           </button>
         </div>
 
         {/* 탭 */}
         <div className="max-w-3xl mx-auto px-4">
-          <div className="flex gap-0 border-b border-gray-100">
+          <div className="flex gap-0 border-b border-[#F3E8D0]">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors flex items-center gap-1.5 ${
                   activeTab === tab.id
-                    ? "border-blue-600 text-blue-600"
-                    : "border-transparent text-gray-500 hover:text-gray-800"
+                    ? "border-yellow-500 text-[#5D4037]"
+                    : "border-transparent text-gray-500 hover:text-[#5D4037]"
                 }`}
               >
+                <i className={`${tab.icon} text-sm`}></i>
                 {tab.label}
               </button>
             ))}
@@ -173,13 +177,12 @@ export default function ResumeForm() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 py-6 space-y-5">
+      <div className="max-w-3xl mx-auto px-4 py-6 space-y-5 flex-1 w-full">
         {/* ── 기본정보 탭 ── */}
         {activeTab === "basic" && (
           <>
-            {/* 이력서 제목 */}
-            <div className="bg-white border border-gray-200 rounded-xl p-5">
-              <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+            <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
+              <label className="block text-sm font-semibold text-[#5D4037] mb-1.5">
                 이력서 제목 <span className="text-red-500">*</span>
               </label>
               <input
@@ -187,13 +190,14 @@ export default function ResumeForm() {
                 value={resume.title}
                 onChange={(e) => setResume((p) => ({ ...p, title: e.target.value }))}
                 placeholder="예: 프론트엔드 개발자 이력서"
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={inputClass}
               />
             </div>
 
-            {/* 기본 프로필 */}
-            <div className="bg-white border border-gray-200 rounded-xl p-5">
-              <h2 className="font-semibold text-gray-900 mb-4">기본 정보</h2>
+            <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
+              <h2 className="font-semibold text-[#5D4037] mb-4 flex items-center gap-2">
+                <i className="ri-user-3-line text-yellow-500"></i> 기본 정보
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { label: "이름", name: "name", required: true, placeholder: "홍길동" },
@@ -212,7 +216,7 @@ export default function ResumeForm() {
                       value={resume.profile[name]}
                       onChange={handleProfile}
                       placeholder={placeholder}
-                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className={inputClass}
                     />
                   </div>
                 ))}
@@ -225,7 +229,7 @@ export default function ResumeForm() {
                   onChange={handleProfile}
                   rows={4}
                   placeholder="본인의 강점과 경력을 간략히 소개해주세요."
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-[#D7B89C] rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white"
                 />
               </div>
             </div>
@@ -234,24 +238,30 @@ export default function ResumeForm() {
 
         {/* ── 경력 탭 ── */}
         {activeTab === "experience" && (
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-semibold text-gray-900">경력 사항</h2>
+              <h2 className="font-semibold text-[#5D4037] flex items-center gap-2">
+                <i className="ri-briefcase-line text-yellow-500"></i> 경력 사항
+              </h2>
               <button
                 onClick={addExperience}
-                className="text-sm text-blue-600 border border-blue-200 px-3 py-1.5 rounded-lg hover:bg-blue-50 transition-colors"
+                className="text-sm text-[#8D6E63] border border-[#D7B89C] px-3 py-1.5 rounded-lg hover:bg-[#FFF3E0] transition-colors"
               >
                 + 경력 추가
               </button>
             </div>
             {resume.experiences.length === 0 ? (
-              <p className="text-sm text-gray-400 text-center py-8">아직 등록된 경력이 없습니다.</p>
+              <div className="text-center py-10 text-gray-400">
+                <i className="ri-briefcase-line text-4xl block mb-2 text-gray-300"></i>
+                <p className="text-sm">아직 등록된 경력이 없습니다.</p>
+                <p className="text-xs mt-1">위 버튼을 눌러 경력을 추가해보세요.</p>
+              </div>
             ) : (
               <div className="space-y-5">
                 {resume.experiences.map((exp, idx) => (
-                  <div key={idx} className="border border-gray-100 rounded-xl p-4 space-y-3">
+                  <div key={idx} className="border border-[#F3E8D0] rounded-xl p-4 space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-gray-600">경력 #{idx + 1}</span>
+                      <span className="text-sm font-medium text-[#8D6E63]">경력 #{idx + 1}</span>
                       <button
                         onClick={() => removeExperience(idx)}
                         className="text-xs text-red-400 hover:text-red-600"
@@ -272,7 +282,7 @@ export default function ResumeForm() {
                             value={exp[field]}
                             onChange={(e) => updateExperience(idx, field, e.target.value)}
                             placeholder={placeholder}
-                            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className={inputClass}
                           />
                         </div>
                       ))}
@@ -284,7 +294,7 @@ export default function ResumeForm() {
                         value={exp.description}
                         onChange={(e) => updateExperience(idx, "description", e.target.value)}
                         placeholder="담당 업무 및 주요 성과를 입력해주세요."
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-[#D7B89C] rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white"
                       />
                     </div>
                   </div>
@@ -296,24 +306,30 @@ export default function ResumeForm() {
 
         {/* ── 학력 탭 ── */}
         {activeTab === "education" && (
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
+          <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-semibold text-gray-900">학력 사항</h2>
+              <h2 className="font-semibold text-[#5D4037] flex items-center gap-2">
+                <i className="ri-graduation-cap-line text-yellow-500"></i> 학력 사항
+              </h2>
               <button
                 onClick={addEducation}
-                className="text-sm text-blue-600 border border-blue-200 px-3 py-1.5 rounded-lg hover:bg-blue-50 transition-colors"
+                className="text-sm text-[#8D6E63] border border-[#D7B89C] px-3 py-1.5 rounded-lg hover:bg-[#FFF3E0] transition-colors"
               >
                 + 학력 추가
               </button>
             </div>
             {resume.educations.length === 0 ? (
-              <p className="text-sm text-gray-400 text-center py-8">아직 등록된 학력이 없습니다.</p>
+              <div className="text-center py-10 text-gray-400">
+                <i className="ri-graduation-cap-line text-4xl block mb-2 text-gray-300"></i>
+                <p className="text-sm">아직 등록된 학력이 없습니다.</p>
+                <p className="text-xs mt-1">위 버튼을 눌러 학력을 추가해보세요.</p>
+              </div>
             ) : (
               <div className="space-y-5">
                 {resume.educations.map((edu, idx) => (
-                  <div key={idx} className="border border-gray-100 rounded-xl p-4 space-y-3">
+                  <div key={idx} className="border border-[#F3E8D0] rounded-xl p-4 space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-gray-600">학력 #{idx + 1}</span>
+                      <span className="text-sm font-medium text-[#8D6E63]">학력 #{idx + 1}</span>
                       <button
                         onClick={() => removeEducation(idx)}
                         className="text-xs text-red-400 hover:text-red-600"
@@ -335,7 +351,7 @@ export default function ResumeForm() {
                             value={edu[field]}
                             onChange={(e) => updateEducation(idx, field, e.target.value)}
                             placeholder={placeholder}
-                            className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className={inputClass}
                           />
                         </div>
                       ))}
@@ -350,20 +366,22 @@ export default function ResumeForm() {
         {/* ── 스킬/자격증 탭 ── */}
         {activeTab === "skills" && (
           <>
-            <div className="bg-white border border-gray-200 rounded-xl p-5">
-              <h2 className="font-semibold text-gray-900 mb-4">보유 스킬</h2>
+            <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
+              <h2 className="font-semibold text-[#5D4037] mb-4 flex items-center gap-2">
+                <i className="ri-code-line text-yellow-500"></i> 보유 스킬
+              </h2>
               <div className="flex gap-2 mb-3">
                 <input
                   type="text"
                   value={skillInput}
                   onChange={(e) => setSkillInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && addSkill()}
-                  placeholder="예: React, TypeScript"
-                  className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="예: React, TypeScript (Enter로 추가)"
+                  className={inputClass}
                 />
                 <button
                   onClick={addSkill}
-                  className="text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="text-sm bg-yellow-500 hover:opacity-90 text-white px-4 py-2 rounded-lg transition-opacity whitespace-nowrap"
                 >
                   추가
                 </button>
@@ -372,12 +390,12 @@ export default function ResumeForm() {
                 {resume.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1 text-sm bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full"
+                    className="inline-flex items-center gap-1 text-sm bg-[#FFF8F0] text-[#8D6E63] border border-[#F3E8D0] px-3 py-1 rounded-full"
                   >
                     {skill}
                     <button
                       onClick={() => removeSkill(skill)}
-                      className="text-blue-400 hover:text-blue-700 ml-1 leading-none"
+                      className="text-[#8D6E63] hover:text-[#5D4037] ml-1 leading-none"
                     >
                       ×
                     </button>
@@ -389,24 +407,29 @@ export default function ResumeForm() {
               </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl p-5">
+            <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="font-semibold text-gray-900">자격증</h2>
+                <h2 className="font-semibold text-[#5D4037] flex items-center gap-2">
+                  <i className="ri-award-line text-yellow-500"></i> 자격증
+                </h2>
                 <button
                   onClick={addCertificate}
-                  className="text-sm text-blue-600 border border-blue-200 px-3 py-1.5 rounded-lg hover:bg-blue-50 transition-colors"
+                  className="text-sm text-[#8D6E63] border border-[#D7B89C] px-3 py-1.5 rounded-lg hover:bg-[#FFF3E0] transition-colors"
                 >
                   + 자격증 추가
                 </button>
               </div>
               {resume.certificates.length === 0 ? (
-                <p className="text-sm text-gray-400 text-center py-6">아직 등록된 자격증이 없습니다.</p>
+                <div className="text-center py-8 text-gray-400">
+                  <i className="ri-award-line text-4xl block mb-2 text-gray-300"></i>
+                  <p className="text-sm">아직 등록된 자격증이 없습니다.</p>
+                </div>
               ) : (
                 <div className="space-y-4">
                   {resume.certificates.map((cert, idx) => (
-                    <div key={idx} className="border border-gray-100 rounded-xl p-4">
+                    <div key={idx} className="border border-[#F3E8D0] rounded-xl p-4">
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm font-medium text-gray-600">자격증 #{idx + 1}</span>
+                        <span className="text-sm font-medium text-[#8D6E63]">자격증 #{idx + 1}</span>
                         <button
                           onClick={() => removeCertificate(idx)}
                           className="text-xs text-red-400 hover:text-red-600"
@@ -427,7 +450,7 @@ export default function ResumeForm() {
                               value={cert[field]}
                               onChange={(e) => updateCertificate(idx, field, e.target.value)}
                               placeholder={placeholder}
-                              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                              className={inputClass}
                             />
                           </div>
                         ))}
@@ -440,6 +463,8 @@ export default function ResumeForm() {
           </>
         )}
       </div>
+
+      <Footer />
     </div>
   );
 }
