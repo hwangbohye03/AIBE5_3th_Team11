@@ -1,1 +1,40 @@
-aW1wb3J0IHsgUm91dGVzLCBSb3V0ZSwgT3V0bGV0IH0gZnJvbSAicmVhY3Qtcm91dGVyLWRvbSI7CmltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAicmVhY3QiOwppbXBvcnQgSGVhZGVyIGZyb20gIi4vY29tcG9uZW50cy9IZWFkZXIiOwppbXBvcnQgRm9vdGVyIGZyb20gIi4vY29tcG9uZW50cy9Gb290ZXIiOwppbXBvcnQgTWVtYmVyU2lkZWJhciBmcm9tICIuL2NvbXBvbmVudHMvbWVtYmVybXlwYWdlL01lbWJlclNpZGViYXIiOwppbXBvcnQgQ29tcGFueVNpZGViYXIgZnJvbSAiLi9jb21wb25lbnRzL2NvbXBhbnkvQ29tcGFueVNpZGViYXIiOwoKaW1wb3J0IEhvbWUgZnJvbSAiLi9wYWdlcy9Ib21lIjsKaW1wb3J0IExvZ2luIGZyb20gIi4vcGFnZXMvTG9naW4iOwppbXBvcnQgTWVtYmVyc2hpcCBmcm9tICIuL3BhZ2VzL01lbWJlcnNoaXAiOwppbXBvcnQgQ29tbXVuaXR5IGZyb20gIi4vcGFnZXMvQ29tbXVuaXR5IjsKaW1wb3J0IENvbW11bml0eURldGFpbCBmcm9tICIuL3BhZ2VzL0NvbW11bml0eURldGFpbCI7CmltcG9ydCBDb21tdW5pdHlXcml0ZSBmcm9tICIuL3BhZ2VzL0NvbW11bml0eVdyaXRlIjsKaW1wb3J0IFJlc3VtZUxpc3QgZnJvbSAiLi9wYWdlcy9SZXN1bWVMaXN0IjsKaW1wb3J0IFJlc3VtZUZvcm0gZnJvbSAiLi9wYWdlcy9SZXN1bWVGb3JtIjsKaW1wb3J0IFJlc3VtZURldGFpbCBmcm9tICIuL3BhZ2VzL1Jlc3VtZURldGFpbCI7CmltcG9ydCBDb21wYW55TXlwYWdlIGZyb20gIi4vcGFnZXMvQ29tcGFueU15cGFnZSI7CmltcG9ydCBDb21wYW55Sm9iUG9zdE1hbmFnZSBmcm9tICIuL3BhZ2VzL0NvbXBhbnlKb2JQb3N0TWFuYWdlIjsKaW1wb3J0IEpvYnMgZnJvbSAiLi9wYWdlcy9Kb2JzIjsKaW1wb3J0IEpvYkRldGFpbCBmcm9tICIuL3BhZ2VzL0pvYkRldGFpbCI7CmltcG9ydCBNZW1iZXJNeXBhZ2UgZnJvbSAiLi9wYWdlcy9NZW1iZXJNeXBhZ2UiOwppbXBvcnQgQ29tcGFueUFwcGxpY2FudHMgZnJvbSAiLi9wYWdlcy9Db21wYW55QXBwbGljYW50cy5qc3giOwoKLy8g7ZiE7JiF66eM7J207Yq47IqkIOygleybqCDigJQg7IiYIOu4jOydtOyKpCDtmZXrooTqs6Ag7ZWY7J207JeQCmZ1bmN0aW9uIE1lbWJlck15cGFnZUxheW91dCgpIHsKICBjb25zdCBbYWN0aXZlTWVudSwgc2V0QWN0aXZlTWVudV0gPSB1c2VTdGF0ZSgicHJvZmlsZSIpOwoKICByZXR1cm4gKAogICAgPGRpdiBjbGFzc05hbWU9Im1pbi1oLXNjcmVlbiBmbGV4IGZsZXgtY29sIGJnLVsjRkRGQkY3XSI+CiAgICAgIDxIZWFkZXIgLz4KICAgICAgPG1haW4gY2xhc3NOYW1lPSJmbGV4LWdyb3ciPgogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJtYXgtdy02eGwgbXgtYXV0byBweC02IHB5LTEwIj4KICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IGZsZXgtY29sIG1kOmZsZXgtcm93IGdhcC04Ij4KICAgICAgICAgICAgPE1lbWJlclNpZGViYXIKICAgICAgICAgICAgICBhY3RpdmVNZW51PXthY3RpdmVNZW51fQogICAgICAgICAgICAgIG9uQ2hhbmdlTWVudT17c2V0QWN0aXZlTWVudX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPSJmbGV4LTEiPgogICAgICAgICAgICAgIDxPdXRsZXQgY29udGV4dD17eyBhY3RpdmVNZW51LCBzZXRBY3RpdmVNZW51IH19IC8+CiAgICAgICAgICAgIDwvc2VjdGlvbj4KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICA8L21haW4+CiAgICAgIDxGb290ZXIgLz4KICAgIDwvZGl2PgogICk7Cn0KCi8vIOq0gOyIneyXkCDtmITsmIXrp4zsnbTtirjsiqQg7ICV7JuoIOKAlCDsiJgg67iM7J207IqkINmVIOqyveyasOyXkApmdW5jdGlvbiBDb21wYW55TXlwYWdlTGF5b3V0KCkgewogIHJldHVybiAoCiAgICA8PgogICAgICA8SGVhZGVyIC8+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IG1heC13LTd4bCBteC1hdXRvIHB5LTEwIHB4LTQgc206cHgtNiBsZzpweC04IGdhcC04IGl0ZW1zLXN0YXJ0Ij4KICAgICAgICA8Q29tcGFueVNpZGViYXIgLz4KICAgICAgICA8ZGl2IGNsYXNzTmFtZT0idy0zLzQgc3BhY2UteS04Ij4KICAgICAgICAgIDxPdXRsZXQgLz4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICAgIDxGb290ZXIgLz4KICAgIDwvPgogICk7Cn0KCmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEFwcCgpIHsKICByZXR1cm4gKAogICAgPGRpdiBjbGFzc05hbWU9ImJnLVsjRkRGQkY3XSBtaW4taC1zY3JlZW4iPgogICAgICA8Um91dGVzPgogICAgICAgIDxSb3V0ZSBwYXRoPSIvIiBlbGVtZW50PXs8SG9tZSAvPn0gLz4KICAgICAgICA8Um91dGUgcGF0aD0iL2NvbW11bml0eSIgZWxlbWVudD17PENvbW11bml0eSAvPn0gLz4KICAgICAgICA8Um91dGUgcGF0aD0iL2xvZ2luIiBlbGVtZW50PXs8TG9naW4gLz59IC8+CiAgICAgICAgPFJvdXRlIHBhdGg9Ii9tZW1iZXJzaGlwIiBlbGVtZW50PXs8TWVtYmVyc2hpcCAvPn0gLz4KICAgICAgICA8Um91dGUgcGF0aD0iL2NvbW11bml0eURldGFpbC86cG9zdF9pZCIgZWxlbWVudD17PENvbW11bml0eURldGFpbCAvPn0gLz4KICAgICAgICA8Um91dGUgcGF0aD0iL2NvbW11bml0eVdyaXRlIiBlbGVtZW50PXs8Q29tbXVuaXR5V3JpdGUgLz59IC8+CiAgICAgICAgPFJvdXRlIHBhdGg9Ii9qb2JzIiBlbGVtZW50PXs8Sm9icyAvPn0gLz4KICAgICAgICA8Um91dGUgcGF0aD0iL2pvYnMvOmlkIiBlbGVtZW50PXs8Sm9iRGV0YWlsIC8+fSAvPgoKICAgICAgICB7LyogdmVtYmVyT215cGFnZUxheW91dCDigJQg7ZiE7JiF66eM7J207Yq47IqkIOq4sOy9lCDtmZXrooTqs6Ag7ICV7JuoKi99CiAgICAgICAgPFJvdXRlIGVsZW1lbnQ9ezxNZW1iZXJNeXBhZ2VMYXlvdXQgLz59PgogICAgICAgICAgPFJvdXRlIHBhdGg9Ii9tZW1iZXJNeXBhZ2UiIGVsZW1lbnQ9ezxNZW1iZXJNeXBhZ2UgLz59IC8+CiAgICAgICAgICA8Um91dGUgcGF0aD0iL3Jlc3VtZXMiIGVsZW1lbnQ9ezxSZXN1bWVMaXN0IC8+fSAvPgogICAgICAgICAgPFJvdXRlIHBhdGg9Ii9yZXN1bWVzL25ldyIgZWxlbWVudD17PFJlc3VtZUZvcm0gLz59IC8+CiAgICAgICAgICA8Um91dGUgcGF0aD0iL3Jlc3VtZXMvOmlkIiBlbGVtZW50PXs8UmVzdW1lRGV0YWlsIC8+fSAvPgogICAgICAgICAgPFJvdXRlIHBhdGg9Ii9yZXN1bWVzLzppZC9lZGl0IiBlbGVtZW50PXs8UmVzdW1lRm9ybSAvPn0gLz4KICAgICAgICA8L1JvdXRlPgoKICAgICAgICB7LyogQ29tcGFueU15cGFnZUxheW91dCDigJQg6rSA7IgneyXkCDtmITsmIXrp4zsnbTtirjsiqQg7ICV7JuoKi99CiAgICAgICAgPFJvdXRlIGVsZW1lbnQ9ezxDb21wYW55TXlwYWdlTGF5b3V0IC8+fT4KICAgICAgICAgIDxSb3V0ZSBwYXRoPSIvY29tcGFueS1teXBhZ2UiIGVsZW1lbnQ9ezxDb21wYW55TXlwYWdlIC8+fSAvPgogICAgICAgICAgPFJvdXRlIHBhdGg9Ii9jb21wYW55LWpvYnBvc3QtbWFuYWdlIiBlbGVtZW50PXs8Q29tcGFueUpvYlBvc3RNYW5hZ2UgLz59IC8+CiAgICAgICAgICA8Um91dGUgcGF0aD0iL2NvbXBhbnlBcHBsaWNhbnRzIiBlbGVtZW50PXs8Q29tcGFueUFwcGxpY2FudHMgLz59IC8+CiAgICAgICAgPC9Sb3V0ZT4KICAgICAgPC9Sb3V0ZXM+CiAgICA8L2Rpdj4KICApOwp9Cg==
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Membership from "./pages/Membership";
+import Community from "./pages/Community";
+import CommunityDetail from "./pages/CommunityDetail";
+import CommunityWrite from "./pages/CommunityWrite";
+import ResumeList from "./pages/ResumeList";
+import ResumeForm from "./pages/ResumeForm";
+import ResumeDetail from "./pages/ResumeDetail";
+import Jobs from "./pages/Jobs";
+import JobDetail from "./pages/JobDetail";
+import MemberMypage from "./pages/MemberMypage";
+import CompanyApplicants from "./pages/CompanyApplicants.jsx";
+import AiRecommend from "./pages/AiRecommend";
+
+export default function App() {
+  return (
+    <div className="bg-[#FDFBF7] min-h-screen">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/membership" element={<Membership />} />
+        <Route path="/communityDetail/:post_id" element={<CommunityDetail />} />
+        <Route path="/communityWrite" element={<CommunityWrite />} />
+        {/* 이력서 라우트 */}
+        <Route path="/resumes" element={<ResumeList />} />
+        <Route path="/resumes/new" element={<ResumeForm />} />
+        <Route path="/resumes/:id" element={<ResumeDetail />} />
+        <Route path="/resumes/:id/edit" element={<ResumeForm />} />
+        <Route path="/jobs" element={<Jobs/>}/>
+        <Route path="/jobs/:id" element={<JobDetail/>} />
+        <Route path="/memberMypage" element={<MemberMypage/>} />
+        <Route path="/companyApplicants" element={<CompanyApplicants/>} />
+        <Route path="/ai-recommend" element={<AiRecommend/>} />
+        </Routes>
+    </div>
+  );
+}
