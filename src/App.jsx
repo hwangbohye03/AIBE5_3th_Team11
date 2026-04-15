@@ -11,6 +11,7 @@ import ResumeDetail from "./pages/ResumeDetail";
 import Jobs from "./pages/Jobs";
 import JobDetail from "./pages/JobDetail";
 import MemberMypage from "./pages/MemberMypage";
+import CompanyApplicants from "./pages/CompanyApplicants.jsx";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/jobs" element={<Jobs/>}/>
         <Route path="/jobs/:id" element={<JobDetail/>} />
         <Route path="/memberMypage" element={<MemberMypage/>} />
+        <Route path="/companyApplicants" element={<CompanyApplicants/>} />
         </Routes>
     </div>
   );
