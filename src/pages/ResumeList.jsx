@@ -95,7 +95,7 @@ export default function ResumeList() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
-      <Header />
+
 
       {/* 페이지 타이틀 영역 */}
       <div className="bg-white border-b border-[#F3E8D0]">
@@ -195,7 +195,6 @@ export default function ResumeList() {
         )}
       </div>
 
-      <Footer />
 
       {/* 삭제 확인 모달 */}
       {deleteTarget && (

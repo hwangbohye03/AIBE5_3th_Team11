@@ -35,7 +35,7 @@ export default function CompanyJobpostManageContent() {
 
   // 상세 페이지 이동
   const handleRowClick = (jobId) => {
-    navigate(`/applicants/${jobId}`);
+    navigate(`/companyapplicants/${jobId}`);
   };
 
   // 폼 모달 열기 (등록/수정 공통)

@@ -223,7 +223,7 @@ export default function ResumeDetail() {
             </div>
           </div>
         </div>
-        
+
       </div>
   );
 }

@@ -31,7 +31,7 @@ export default function MemberSidebar({ activeMenu, onChangeMenu }) {
                     className={menuClass("scrap")}
                     onClick={() => onChangeMenu("scrap")}
                 >
-                    스크랙 목록
+                    스크랩 목록
                 </button>
             </div>
         </aside>

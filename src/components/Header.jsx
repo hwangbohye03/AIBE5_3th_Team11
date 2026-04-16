@@ -69,7 +69,7 @@ export default function Header() {
             {isLogin ? (
                 <>
                   <Link
-                      to="/companyapplicants"
+                      to="/notification"
                       className="relative w-9 h-9 flex items-center justify-center rounded-md hover:bg-gray-100 transition"
                   >
                     <i className="ri-notification-3-line text-xl text-gray-600"></i>

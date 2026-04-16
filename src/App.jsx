@@ -32,7 +32,7 @@ export default function App() {
 
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/jobs/:id" element={<JobDetail />} />
-        <Route path="/companyApplicants" element={<CompanyApplicants />} />
+        <Route path="/companyapplicants/:jobId" element={<CompanyApplicants />} />
         <Route path="/ai-recommend" element={<AiRecommend />} />
 
         {/* 마이페이지: 사이드바가 유지되는 중첩 라우트 */}
