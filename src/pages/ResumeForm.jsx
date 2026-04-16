@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { useNavigate, useParams } from "react-router-dom";
 
 const emptyResume = {
   title: "",
@@ -125,23 +123,25 @@ export default function ResumeForm() {
     }
     setSaved(true);
     setTimeout(() => {
-      navigate("/resumes");
+      navigate("/memberMypage/resumes");
     }, 800);
   };
 
   const inputClass = "w-full border border-[#D7B89C] rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white";
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
-
+    <div className="space-y-4">
       {/* 서브 헤더 */}
-      <div className="bg-white border-b border-[#F3E8D0] sticky top-16 z-10">
-        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="bg-white border border-[#F3E8D0] rounded-xl p-4 sticky top-0 z-10">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link to="/resumes" className="text-[#8D6E63] hover:text-[#5D4037] text-sm flex items-center gap-1">
+            <button
+              onClick={() => navigate("/memberMypage/resumes")}
+              className="text-[#8D6E63] hover:text-[#5D4037] text-sm flex items-center gap-1"
+            >
               <i className="ri-arrow-left-line"></i> 목록
-            </Link>
-            <h1 className="text-xl font-extrabold text-[#5D4037]">
+            </button>
+            <h1 className="text-lg font-extrabold text-[#5D4037]">
               {isEdit ? "이력서 수정" : "새 이력서 작성"}
             </h1>
           </div>
@@ -156,27 +156,25 @@ export default function ResumeForm() {
         </div>
 
         {/* 탭 */}
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="flex gap-0 border-b border-[#F3E8D0]">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors flex items-center gap-1.5 ${
-                  activeTab === tab.id
-                    ? "border-yellow-500 text-[#5D4037]"
-                    : "border-transparent text-gray-500 hover:text-[#5D4037]"
-                }`}
-              >
-                <i className={`${tab.icon} text-sm`}></i>
-                {tab.label}
-              </button>
-            ))}
-          </div>
+        <div className="flex gap-0 border-t border-[#F3E8D0] mt-4 pt-4">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors flex items-center gap-1.5 ${
+                activeTab === tab.id
+                  ? "border-yellow-500 text-[#5D4037]"
+                  : "border-transparent text-gray-500 hover:text-[#5D4037]"
+              }`}
+            >
+              <i className={`${tab.icon} text-sm`}></i>
+              {tab.label}
+            </button>
+          ))}
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 py-6 space-y-5 flex-1 w-full">
+      <div className="space-y-5">
         {/* ── 기본정보 탭 ── */}
         {activeTab === "basic" && (
           <>
@@ -462,7 +460,6 @@ export default function ResumeForm() {
           </>
         )}
       </div>
-
     </div>
   );
 }

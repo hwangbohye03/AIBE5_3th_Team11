@@ -43,12 +43,6 @@ export default function App() {
           <Route path="resumes/:id" element={<ResumeDetail />} />
           <Route path="resumes/:id/edit" element={<ResumeForm />} />
         </Route>
-
-        {/* 기존 이력서 URL 호환성 유지 (외부에서 직접 접근 시 사이드바 없이 표시) */}
-        <Route path="/resumes" element={<ResumeList />} />
-        <Route path="/resumes/new" element={<ResumeForm />} />
-        <Route path="/resumes/:id" element={<ResumeDetail />} />
-        <Route path="/resumes/:id/edit" element={<ResumeForm />} />
       </Routes>
     </div>
   );
