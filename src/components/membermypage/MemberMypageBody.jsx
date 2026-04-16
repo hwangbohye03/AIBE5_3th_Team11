@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function MemberMypageBody() {
     const [activeTab, setActiveTab] = useState("basic");
+    const [isEditing, setIsEditing] = useState(false);
 
     const [profile, setProfile] = useState({
         name: "김다온",
@@ -22,9 +23,12 @@ export default function MemberMypageBody() {
         });
     };
 
+    const handleEditToggle = () => {
+        setIsEditing((prev) => !prev);
+    };
+
     return (
         <div className="max-w-4xl mx-auto py-10 px-4 space-y-6">
-
             {/* 상단 프로필 */}
             <div className="bg-white shadow rounded-lg p-6 flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-2xl">
@@ -35,8 +39,8 @@ export default function MemberMypageBody() {
                     <h2 className="font-bold text-lg">{profile.name}</h2>
                     <p className="text-gray-500 text-sm">{profile.email}</p>
                     <span className="inline-block mt-1 px-2 py-1 text-xs bg-blue-100 text-blue-600 rounded">
-            {profile.disabilityType} {profile.disabilityGrade}
-          </span>
+                        {profile.disabilityType} {profile.disabilityGrade}
+                    </span>
                 </div>
             </div>
 
@@ -72,48 +76,88 @@ export default function MemberMypageBody() {
 
             {/* 기본정보 */}
             {activeTab === "basic" && (
-                <div className="bg-white shadow rounded-lg p-6 space-y-4">
-                    <input
-                        className="w-full border p-2 rounded"
-                        value={profile.name}
-                        onChange={(e) => handleChange("name", e.target.value)}
-                        placeholder="이름"
-                    />
+                <div className="bg-white shadow rounded-lg p-6 space-y-5">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <label className="font-medium text-gray-700">이름</label>
+                        <input
+                            className={`col-span-3 border p-2 rounded ${
+                                !isEditing ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
+                            }`}
+                            value={profile.name}
+                            onChange={(e) => handleChange("name", e.target.value)}
+                            disabled={!isEditing}
+                        />
+                    </div>
 
-                    <input
-                        className="w-full border p-2 rounded"
-                        value={profile.email}
-                        onChange={(e) => handleChange("email", e.target.value)}
-                        placeholder="이메일"
-                    />
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <label className="font-medium text-gray-700">이메일</label>
+                        <input
+                            className={`col-span-3 border p-2 rounded ${
+                                !isEditing ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
+                            }`}
+                            value={profile.email}
+                            onChange={(e) => handleChange("email", e.target.value)}
+                            disabled={!isEditing}
+                        />
+                    </div>
 
-                    <input
-                        className="w-full border p-2 rounded"
-                        value={profile.phone}
-                        onChange={(e) => handleChange("phone", e.target.value)}
-                        placeholder="전화번호"
-                    />
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <label className="font-medium text-gray-700">전화번호</label>
+                        <input
+                            className={`col-span-3 border p-2 rounded ${
+                                !isEditing ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
+                            }`}
+                            value={profile.phone}
+                            onChange={(e) => handleChange("phone", e.target.value)}
+                            disabled={!isEditing}
+                        />
+                    </div>
 
-                    <input
-                        className="w-full border p-2 rounded"
-                        value={profile.address}
-                        onChange={(e) => handleChange("address", e.target.value)}
-                        placeholder="주소"
-                    />
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <label className="font-medium text-gray-700">주소</label>
+                        <input
+                            className={`col-span-3 border p-2 rounded ${
+                                !isEditing ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
+                            }`}
+                            value={profile.address}
+                            onChange={(e) => handleChange("address", e.target.value)}
+                            disabled={!isEditing}
+                        />
+                    </div>
 
-                    <input
-                        className="w-full border p-2 rounded"
-                        value={profile.desiredJob}
-                        onChange={(e) => handleChange("desiredJob", e.target.value)}
-                        placeholder="희망 직종"
-                    />
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <label className="font-medium text-gray-700">희망 직무</label>
+                        <input
+                            className={`col-span-3 border p-2 rounded ${
+                                !isEditing ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
+                            }`}
+                            value={profile.desiredJob}
+                            onChange={(e) => handleChange("desiredJob", e.target.value)}
+                            disabled={!isEditing}
+                        />
+                    </div>
 
-                    <input
-                        className="w-full border p-2 rounded"
-                        value={profile.desiredSalary}
-                        onChange={(e) => handleChange("desiredSalary", e.target.value)}
-                        placeholder="희망 연봉"
-                    />
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <label className="font-medium text-gray-700">희망 연봉</label>
+                        <input
+                            className={`col-span-3 border p-2 rounded ${
+                                !isEditing ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""
+                            }`}
+                            value={profile.desiredSalary}
+                            onChange={(e) => handleChange("desiredSalary", e.target.value)}
+                            disabled={!isEditing}
+                        />
+                    </div>
+
+                    <div className="pt-4 flex justify-end gap-3">
+                        <button
+                            onClick={handleEditToggle}
+                            className="px-6 py-2 bg-[#4A2E2A] text-white rounded-lg hover:bg-[#3a231f]"
+                        >
+                            {isEditing ? "수정 완료" : "내용 수정"}
+                        </button>
+
+                    </div>
                 </div>
             )}
 
@@ -180,8 +224,8 @@ export default function MemberMypageBody() {
                         비밀번호 변경
                     </button>
 
-                    <button className="w-full bg-red-500 text-white py-2 rounded">
-                        계정 탈퇴
+                    <button className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 mt-2">
+                        회원 탈퇴
                     </button>
                 </div>
             )}

@@ -113,14 +113,14 @@ function ScrapSection() {
     return (
         <div className="space-y-4">
             <div className="flex items-center justify-between mb-2">
-                <h3 className="text-lg font-bold text-[#3C2A21]">스크랙 목록</h3>
+                <h3 className="text-lg font-bold text-[#3C2A21]">스크랩 목록</h3>
                 <span className="text-sm text-gray-400">{scraps.length}개</span>
             </div>
 
             {scraps.length === 0 ? (
                 <div className="text-center py-16 text-gray-400">
                     <i className="ri-bookmark-line text-5xl block mb-3 text-gray-300"></i>
-                    <p className="font-medium">스크랙한 채용공고가 없습니다.</p>
+                    <p className="font-medium">스크랩한 채용공고가 없습니다.</p>
                     <p className="text-sm mt-1">채용공고를 찾아보세요!</p>
                     <button
                         onClick={() => navigate("/jobs")}
@@ -141,7 +141,7 @@ function ScrapSection() {
                                 <h4 className="font-bold text-[#5D4037] text-sm leading-snug">{scrap.title}</h4>
                                 <div className="flex gap-3 mt-2 text-xs text-gray-400">
                                     <span>마감: {scrap.deadline}</span>
-                                    <span>스크랙: {scrap.scrappedAt}</span>
+                                    <span>스크랩: {scrap.scrappedAt}</span>
                                 </div>
                             </div>
                             <button className="text-yellow-500 hover:text-yellow-600 text-xl ml-3">
