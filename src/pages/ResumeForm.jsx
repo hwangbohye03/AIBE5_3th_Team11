@@ -13,12 +13,63 @@ const emptyResume = {
     disabilityDescription: "",
     summary: "",
   },
+  workEnv: {
+    envBothHands: "",
+    envEyesight: "",
+    envHandWork: "",
+    envLiftPower: "",
+    envLstnTalk: "",
+    envStndWalk: "",
+  },
   experiences: [],
   educations: [],
   skills: [],
   certificates: [],
   languages: [],
 };
+
+// 공고 지원 모달(JobDetail)과 동일한 근로 가능 환경 옵션
+const ENV_OPTIONS = {
+  envBothHands: [
+    "양손작업 가능",
+    "한손작업 가능",
+    "한손보조작업 가능",
+  ],
+  envEyesight: [
+    "아주 작은 글씨를 읽을 수 있음",
+    "일상적 활동 가능",
+    "비교적 큰 인쇄물을 읽을 수 있음",
+  ],
+  envHandWork: [
+    "정밀한 작업가능",
+    "작은 물품 조립가능",
+    "큰 물품 조립가능",
+  ],
+  envLiftPower: [
+    "20Kg 이상의 물건을 다룰 수 있음",
+    "5Kg 이내의 물건을 다룰 수 있음",
+    "5~20Kg의 물건을 다룰 수 있음",
+  ],
+  envLstnTalk: [
+    "듣고 말하기에 어려움 없음",
+    "간단한 듣고 말하기 가능",
+    "듣고 말하는 작업 어려움",
+  ],
+  envStndWalk: [
+    "오랫동안 가능",
+    "일부 서서하는 작업 가능",
+    "서거나 걷는 일 어려움",
+  ],
+};
+
+const WORK_ENV_FIELDS = [
+  { label: "양손 활용", name: "envBothHands" },
+  { label: "시각", name: "envEyesight" },
+  { label: "손작업", name: "envHandWork" },
+  { label: "물건 다루기", name: "envLiftPower" },
+  { label: "의사소통", name: "envLstnTalk" },
+  { label: "서기/걷기", name: "envStndWalk" },
+];
 
 const DISABILITY_TYPES = [
   "지체장애",
@@ -59,6 +110,11 @@ export default function ResumeForm() {
   const handleProfile = (e) => {
     const { name, value } = e.target;
     setResume((prev) => ({ ...prev, profile: { ...prev.profile, [name]: value } }));
+  };
+
+  const handleWorkEnv = (e) => {
+    const { name, value } = e.target;
+    setResume((prev) => ({ ...prev, workEnv: { ...prev.workEnv, [name]: value } }));
   };
 
   const addExperience = () =>
@@ -299,6 +355,34 @@ export default function ResumeForm() {
                   placeholder="본인의 강점과 경력을 간략히 소개해주세요."
                   className="w-full border border-[#D7B89C] rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white"
                 />
+              </div>
+            </div>
+
+            {/* 근로 가능 환경 */}
+            <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
+              <h2 className="font-semibold text-[#5D4037] mb-1 flex items-center gap-2">
+                <i className="ri-hand-coin-line text-yellow-500"></i> 근로 가능 환경
+              </h2>
+              <p className="text-xs text-gray-500 mb-4">
+                각 항목별로 근로 가능한 수준을 선택해주세요. 입력한 내용은 공고 지원 시 참고 자료로 활용됩니다.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {WORK_ENV_FIELDS.map(({ label, name }) => (
+                  <div key={name}>
+                    <label className="block text-xs text-gray-500 mb-1">{label}</label>
+                    <select
+                      name={name}
+                      value={resume.workEnv[name]}
+                      onChange={handleWorkEnv}
+                      className={inputClass}
+                    >
+                      <option value="">선택해주세요</option>
+                      {ENV_OPTIONS[name].map((opt) => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+                ))}
               </div>
             </div>
           </>
