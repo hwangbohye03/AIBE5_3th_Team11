@@ -9,13 +9,34 @@ const emptyResume = {
     phone: "",
     address: "",
     birthDate: "",
+    disabilityType: "",
+    disabilityDescription: "",
     summary: "",
   },
   experiences: [],
   educations: [],
   skills: [],
   certificates: [],
+  languages: [],
 };
+
+const DISABILITY_TYPES = [
+  "지체장애",
+  "뇌병변장애",
+  "시각장애",
+  "청각/언어장애",
+  "발달장애 (지적/자폐)",
+  "신장장애",
+  "심장장애",
+  "호흡기장애",
+  "간장애",
+  "안면장애",
+  "장루/요루장애",
+  "뇌전증장애",
+  "기타",
+];
+
+const LANGUAGE_LEVELS = ["초급", "중급", "고급", "원어민 수준"];
 
 export default function ResumeForm() {
   const { id } = useParams();
@@ -31,6 +52,7 @@ export default function ResumeForm() {
     { id: "basic", label: "기본정보", icon: "ri-user-line" },
     { id: "experience", label: "경력", icon: "ri-briefcase-line" },
     { id: "education", label: "학력", icon: "ri-graduation-cap-line" },
+    { id: "language", label: "어학", icon: "ri-translate-2" },
     { id: "skills", label: "스킬/자격증", icon: "ri-award-line" },
   ];
 
@@ -44,7 +66,7 @@ export default function ResumeForm() {
       ...prev,
       experiences: [
         ...prev.experiences,
-        { company: "", position: "", period: "", description: "" },
+        { company: "", position: "", startDate: "", endDate: "", description: "" },
       ],
     }));
 
@@ -112,6 +134,28 @@ export default function ResumeForm() {
       certificates: prev.certificates.filter((_, i) => i !== idx),
     }));
 
+  const addLanguage = () =>
+    setResume((prev) => ({
+      ...prev,
+      languages: [
+        ...prev.languages,
+        { language: "", level: "", testName: "", score: "", acquiredDate: "" },
+      ],
+    }));
+
+  const updateLanguage = (idx, field, value) =>
+    setResume((prev) => {
+      const arr = [...prev.languages];
+      arr[idx] = { ...arr[idx], [field]: value };
+      return { ...prev, languages: arr };
+    });
+
+  const removeLanguage = (idx) =>
+    setResume((prev) => ({
+      ...prev,
+      languages: prev.languages.filter((_, i) => i !== idx),
+    }));
+
   const handleSave = () => {
     if (!resume.title.trim()) {
       alert("이력서 제목을 입력해주세요.");
@@ -156,12 +200,12 @@ export default function ResumeForm() {
         </div>
 
         {/* 탭 */}
-        <div className="flex gap-0 border-t border-[#F3E8D0] mt-4 pt-4">
+        <div className="flex gap-0 border-t border-[#F3E8D0] mt-4 pt-4 overflow-x-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors flex items-center gap-1.5 ${
+              className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors flex items-center gap-1.5 whitespace-nowrap ${
                 activeTab === tab.id
                   ? "border-yellow-500 text-[#5D4037]"
                   : "border-transparent text-gray-500 hover:text-[#5D4037]"
@@ -217,6 +261,33 @@ export default function ResumeForm() {
                     />
                   </div>
                 ))}
+                {/* 장애 유형 */}
+                <div>
+                  <label className="block text-xs text-gray-500 mb-1">장애 유형</label>
+                  <select
+                    name="disabilityType"
+                    value={resume.profile.disabilityType}
+                    onChange={handleProfile}
+                    className={inputClass}
+                  >
+                    <option value="">선택해주세요</option>
+                    {DISABILITY_TYPES.map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              {/* 장애에 대한 간단 설명 */}
+              <div className="mt-4">
+                <label className="block text-xs text-gray-500 mb-1">장애에 대한 간단 설명</label>
+                <textarea
+                  name="disabilityDescription"
+                  value={resume.profile.disabilityDescription}
+                  onChange={handleProfile}
+                  rows={3}
+                  placeholder="업무 수행에 참고가 될 수 있는 장애 관련 사항을 간단히 작성해주세요. (예: 필요한 편의 지원, 업무 가능 범위 등)"
+                  className="w-full border border-[#D7B89C] rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white"
+                />
               </div>
               <div className="mt-4">
                 <label className="block text-xs text-gray-500 mb-1">자기소개 / 요약</label>
@@ -267,22 +338,46 @@ export default function ResumeForm() {
                       </button>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {[
-                        { label: "회사명", field: "company", placeholder: "(주)회사명" },
-                        { label: "직책/직위", field: "position", placeholder: "프론트엔드 개발자" },
-                        { label: "재직기간", field: "period", placeholder: "2020.03 ~ 2023.12" },
-                      ].map(({ label, field, placeholder }) => (
-                        <div key={field}>
-                          <label className="block text-xs text-gray-500 mb-1">{label}</label>
-                          <input
-                            type="text"
-                            value={exp[field]}
-                            onChange={(e) => updateExperience(idx, field, e.target.value)}
-                            placeholder={placeholder}
-                            className={inputClass}
-                          />
-                        </div>
-                      ))}
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">회사명</label>
+                        <input
+                          type="text"
+                          value={exp.company}
+                          onChange={(e) => updateExperience(idx, "company", e.target.value)}
+                          placeholder="(주)회사명"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">직책/직위</label>
+                        <input
+                          type="text"
+                          value={exp.position}
+                          onChange={(e) => updateExperience(idx, "position", e.target.value)}
+                          placeholder="프론트엔드 개발자"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">시작일</label>
+                        <input
+                          type="month"
+                          value={exp.startDate}
+                          onChange={(e) => updateExperience(idx, "startDate", e.target.value)}
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">종료일</label>
+                        <input
+                          type="month"
+                          value={exp.endDate}
+                          onChange={(e) => updateExperience(idx, "endDate", e.target.value)}
+                          className={inputClass}
+                          placeholder="재직 중인 경우 비워두세요"
+                        />
+                        <p className="text-[11px] text-gray-400 mt-1">재직 중인 경우 비워두세요.</p>
+                      </div>
                     </div>
                     <div>
                       <label className="block text-xs text-gray-500 mb-1">주요 업무 / 성과</label>
@@ -352,6 +447,100 @@ export default function ResumeForm() {
                           />
                         </div>
                       ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── 어학 탭 ── */}
+        {activeTab === "language" && (
+          <div className="bg-white border border-[#F3E8D0] rounded-xl p-5">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-semibold text-[#5D4037] flex items-center gap-2">
+                <i className="ri-translate-2 text-yellow-500"></i> 어학 사항
+              </h2>
+              <button
+                onClick={addLanguage}
+                className="text-sm text-[#8D6E63] border border-[#D7B89C] px-3 py-1.5 rounded-lg hover:bg-[#FFF3E0] transition-colors"
+              >
+                + 어학 추가
+              </button>
+            </div>
+            {resume.languages.length === 0 ? (
+              <div className="text-center py-10 text-gray-400">
+                <i className="ri-translate-2 text-4xl block mb-2 text-gray-300"></i>
+                <p className="text-sm">아직 등록된 어학 사항이 없습니다.</p>
+                <p className="text-xs mt-1">위 버튼을 눌러 어학 사항을 추가해보세요.</p>
+              </div>
+            ) : (
+              <div className="space-y-5">
+                {resume.languages.map((lang, idx) => (
+                  <div key={idx} className="border border-[#F3E8D0] rounded-xl p-4 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-medium text-[#8D6E63]">어학 #{idx + 1}</span>
+                      <button
+                        onClick={() => removeLanguage(idx)}
+                        className="text-xs text-red-400 hover:text-red-600"
+                      >
+                        삭제
+                      </button>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">언어</label>
+                        <input
+                          type="text"
+                          value={lang.language}
+                          onChange={(e) => updateLanguage(idx, "language", e.target.value)}
+                          placeholder="예: 영어, 일본어, 중국어"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">회화 수준</label>
+                        <select
+                          value={lang.level}
+                          onChange={(e) => updateLanguage(idx, "level", e.target.value)}
+                          className={inputClass}
+                        >
+                          <option value="">선택</option>
+                          {LANGUAGE_LEVELS.map((opt) => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">공인 시험명</label>
+                        <input
+                          type="text"
+                          value={lang.testName}
+                          onChange={(e) => updateLanguage(idx, "testName", e.target.value)}
+                          placeholder="예: TOEIC, JLPT, HSK"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">점수 / 급수</label>
+                        <input
+                          type="text"
+                          value={lang.score}
+                          onChange={(e) => updateLanguage(idx, "score", e.target.value)}
+                          placeholder="예: 900점, N1, 6급"
+                          className={inputClass}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">취득일</label>
+                        <input
+                          type="month"
+                          value={lang.acquiredDate}
+                          onChange={(e) => updateLanguage(idx, "acquiredDate", e.target.value)}
+                          className={inputClass}
+                        />
+                      </div>
                     </div>
                   </div>
                 ))}
