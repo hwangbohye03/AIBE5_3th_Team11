@@ -1,59 +1,108 @@
+import video1 from "../assets/video/video1.mp4";
+
 export default function Hero() {
   return (
-    <section className="w-full bg-gradient-to-bl from-[#FEB508] via-[#FFDFA4] to-[#FFF4F1] py-24 flex items-center justify-center">
-      <div className="text-center max-w-3xl px-4">
+    <section className="relative overflow-hidden bg-[#FDFBF7] min-h-[560px]">
+      {/* 배경 비디오 */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={video1} type="video/mp4" />
+      </video>
 
-        {/* 작은 배지 */}
-        <div className="inline-block mb-6 px-4 py-1 bg-white/60 rounded-full text-sm text-gray-700">
-          다온을 환영합니다
-        </div>
+      {/* 비디오 위 수채화 톤 오버레이 (텍스트 가독성 확보) */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(253,251,247,0.85) 0%, rgba(253,251,247,0.7) 40%, rgba(244,209,155,0.55) 100%)",
+        }}
+      />
 
-        {/* 메인 타이틀 */}
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4">
-          당신의 <span className="text-yellow-800">가능성</span>이 <br />
-          빛나는 일자리
+      {/* 수채화 파스텔 블롭 배경 */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute rounded-full"
+        style={{
+          width: 520,
+          height: 520,
+          top: -140,
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: "#F4D19B",
+          filter: "blur(40px)",
+          opacity: 0.45,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute rounded-full"
+        style={{
+          width: 260,
+          height: 260,
+          top: 60,
+          left: "6%",
+          background: "#E8D5F2",
+          filter: "blur(40px)",
+          opacity: 0.4,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute rounded-full"
+        style={{
+          width: 260,
+          height: 260,
+          top: 80,
+          right: "6%",
+          background: "#DCE8C6",
+          filter: "blur(40px)",
+          opacity: 0.45,
+        }}
+      />
+
+      {/* 콘텐츠 */}
+      <div className="relative z-10 px-10 py-24 text-center">
+        <h1 className="text-5xl md:text-7xl font-black leading-[1.1] text-[#2C160D]">
+          당신의 <span className="text-[#D98E3A]">가능성</span>이<br />
+          <span
+            className="font-handwriting font-normal text-6xl md:text-8xl text-[#E8A94A]"
+            style={{
+              fontFamily: "'Gaegu', cursive",
+              fontWeight: 400,
+              fontSynthesis: "none",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
+            빛나는
+          </span>{" "}
+          일자리
         </h1>
-
-        {/* 서브 텍스트 */}
-        <p className="text-gray-700 mb-8">
-          누구에게나 열려있는 따뜻한 내일을 함께 만듭니다.
+        <p className="mt-6 text-[#6B4F33] text-lg md:text-xl">
+          누구에게나 열려있는 따뜻한 내일을 함께 만듭니다
         </p>
 
-        {/* 검색창 */}
-        <div className="relative left-1/2 -translate-x-1/2 w-screen max-w-xl px-4">
-          <div className="flex items-center bg-white rounded-full shadow-md overflow-hidden mx-auto">
-            <input
-              type="text"
-              placeholder="어떤 직무를 찾고 계신가요?"
-              className="flex-1 px-6 py-4 outline-none"
-            />
-            <button className="bg-gray-900 text-white px-8 py-3 rounded-full m-1
-              transition duration-150 ease-in-out
-              active:scale-95 active:shadow-inner">
-              검색하기
-            </button>
-          </div>
+        {/* CTA 버튼 */}
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <a
+            href="/ai-recommend"
+            className="px-7 py-3 bg-[#2C160D] text-white font-bold rounded-full shadow-lg hover:bg-[#3A2317] transition"
+          >
+            AI 추천 받기 →
+          </a>
+          <a
+            href="/jobs"
+            className="px-7 py-3 bg-white text-[#2C160D] font-bold rounded-full border-2 border-[#2C160D]/10 hover:border-[#2C160D]/30 transition"
+          >
+            채용공고 보기
+          </a>
         </div>
-
-        {/* 하단 버튼들 */}
-        <div className="flex justify-center gap-3 mt-6 flex-wrap">
-          <button className="px-4 py-2 bg-white/70 rounded-full text-sm 
-            transition duration-200 ease-in-out
-            hover:bg-white hover:shadow-md hover:-translate-y-0.5">
-            글자 크게 보기
-          </button>
-          <button className="px-4 py-2 bg-white/70 rounded-full text-sm 
-            transition duration-200 ease-in-out
-            hover:bg-white hover:shadow-md hover:-translate-y-0.5">
-            음성 지원 안내
-          </button>
-          <button className="px-4 py-2 bg-white/70 rounded-full text-sm 
-            transition duration-200 ease-in-out
-            hover:bg-white hover:shadow-md hover:-translate-y-0.5">
-            고대비 모드
-          </button>
-        </div>
-
       </div>
     </section>
   );
